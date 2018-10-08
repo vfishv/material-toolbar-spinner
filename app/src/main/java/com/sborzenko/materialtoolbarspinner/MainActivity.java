@@ -43,7 +43,7 @@ public class MainActivity extends AppCompatActivity
         initSpinner();
         initSearchView();
 
-        userGroupTextView = (TextView) findViewById(R.id.tv_user_group);
+        userGroupTextView = findViewById(R.id.tv_user_group);
     }
 
     // region AdapterView.OnItemSelectedListener (Spinner item selected)

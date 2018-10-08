@@ -13,6 +13,6 @@
     </style>
 
     <style name="ThemeOverlay.SpinExam.Toolbar" parent="ThemeOverlay.MTS.Toolbar">
-        <item name="colorControlNormal">#fffb00</item>
+        <item name="colorControlNormal">#FFFFFF</item>
     </style>
 </resources>
