@@ -1,7 +1,9 @@
 package com.magorasystems.materialtoolbarspinner;
 
 import android.content.Context;
+import android.content.res.TypedArray;
 import android.os.Build;
+import android.support.annotation.DrawableRes;
 import android.support.annotation.Nullable;
 import android.support.v7.widget.AppCompatSpinner;
 import android.util.AttributeSet;
@@ -13,7 +15,6 @@ import android.widget.BaseAdapter;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 
-import com.magorasystems.materialtoolbarspinner.util.AndroidUtils;
 
 /**
  * Created at Magora Systems (http://magora-systems.com) on 20.07.16
@@ -85,7 +86,7 @@ public class MaterialToolbarSpinner extends LinearLayout {
                 int itemWidth = convertView.getContext()
                         .getResources().getDimensionPixelSize(
                         R.dimen.item_toolbar_width);
-                AndroidUtils.setViewWidth(itemContainer, itemWidth);
+                setViewWidth(itemContainer, itemWidth);
 
                 view = itemContainer;
             } else {
@@ -108,11 +109,11 @@ public class MaterialToolbarSpinner extends LinearLayout {
                 int itemWidth = convertView.getContext()
                         .getResources().getDimensionPixelSize(
                         R.dimen.item_toolbar_width);
-                AndroidUtils.setViewWidth(convertView, itemWidth);
+                setViewWidth(convertView, itemWidth);
 
                 if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
                     convertView.setBackgroundResource(
-                            AndroidUtils.getSelectableItemBackground(
+                            getSelectableItemBackground(
                                     convertView.getContext()));
                 }
             } else {
@@ -121,5 +122,21 @@ public class MaterialToolbarSpinner extends LinearLayout {
 
             return convertView;
         }
+    }
+
+    @DrawableRes
+    public static int getSelectableItemBackground(Context context) {
+        int[] attrs = new int[]{R.attr.selectableItemBackground};
+        TypedArray typedArray = context.obtainStyledAttributes(attrs);
+        int backgroundResource = typedArray.getResourceId(0, 0);
+        typedArray.recycle();
+
+        return backgroundResource;
+    }
+
+    public static void setViewWidth(View view, int width) {
+        ViewGroup.LayoutParams layoutParams = view.getLayoutParams();
+        layoutParams.width = width;
+        view.setLayoutParams(layoutParams);
     }
 }
