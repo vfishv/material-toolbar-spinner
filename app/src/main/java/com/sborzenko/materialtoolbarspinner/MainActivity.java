@@ -2,11 +2,11 @@ package com.sborzenko.materialtoolbarspinner;
 
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
-import android.support.annotation.Nullable;
-import android.support.v4.view.MenuItemCompat;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.SearchView;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.Nullable;
+import androidx.core.view.MenuItemCompat;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
+import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.TextView;
